@@ -1,12 +1,17 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./scss/style.scss";
+
+import { Route, Switch } from "react-router-dom";
+
+//components
+import Main from "./pages/Main/Main";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
-    <div className="App">
-      <h1>YouTube clone!</h1>
-      <img src={logo} alt="" />
-    </div>
+    <Switch>
+      <Route exact path="/" component={Main} />
+      <Route exact path="/login" component={Login} />
+    </Switch>
   );
 }
 
