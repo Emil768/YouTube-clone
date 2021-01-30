@@ -1,0 +1,42 @@
+.video {
+  flex-basis: 250px;
+  margin: 0 40px 40px 0;
+  &:nth-child(5n) {
+    margin-right: 0;
+  }
+  &__icon {
+    position: relative;
+    img {
+      max-width: 100%;
+    }
+  }
+  &__time {
+    position: absolute;
+    z-index: 2;
+    right: 13px;
+    bottom: 13px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    font-size: 14px;
+    color: #fff;
+    padding: 3px 9px;
+  }
+  &__title {
+    font-size: 16px;
+    color: #19202c;
+    margin: 4px 0;
+  }
+  &__info {
+    font-size: 13px;
+    color: #c2c2c2;
+    display: flex;
+    justify-content: space-between;
+    &-view {
+      &::after {
+        content: " · ";
+      }
+    }
+    &-days {
+    }
+  }
+}

@@ -24,12 +24,14 @@
       &:last-child {
         margin-right: 0;
       }
-    }
-    &-icon {
-      font-size: 26px;
-      color: rgba(0, 0, 0, 0.24);
+      svg {
+        font-size: 26px;
+        color: rgba(0, 0, 0, 0.24);
+      }
       &:hover {
-        color: #000;
+        svg {
+          color: #000;
+        }
       }
     }
   }

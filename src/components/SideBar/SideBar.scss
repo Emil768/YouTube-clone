@@ -1,0 +1,62 @@
+.sidebar {
+  flex-basis: 250px;
+  &__btns {
+    display: flex;
+    flex-direction: column;
+  }
+  &__btn {
+    outline: none;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    font-family: "Mulish", sans-serif;
+    cursor: pointer;
+    &:nth-child(3),
+    &:last-child {
+      margin-bottom: 60px;
+    }
+
+    svg {
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.24);
+    }
+    span {
+      margin-left: 13px;
+      font-size: 16px;
+      color: #898989;
+    }
+    &:hover {
+      svg,
+      span {
+        color: #ff0000;
+      }
+    }
+  }
+  &__subcribers {
+    &-title {
+      margin-bottom: 30px;
+    }
+  }
+  &__subscriber {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 107px;
+    }
+
+    &-icon {
+      margin-right: 10px;
+    }
+    &-name {
+      font-size: 16px;
+      color: #898989;
+    }
+  }
+  &__settings {
+    display: flex;
+    align-items: center;
+  }
+}

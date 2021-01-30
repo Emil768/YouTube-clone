@@ -13,7 +13,7 @@ import {
 } from "react-icons/io5";
 
 function Navbar() {
-  // const icons = [IoNotificationsOutline, IoApps, IoVideocamOutline];
+  const icons = [<IoVideocamOutline />, <IoApps />, <IoNotificationsOutline />];
 
   return (
     <div className="navbar">
@@ -33,16 +33,13 @@ function Navbar() {
           </div>
         </div>
         <div className="navbar__content-btns">
-          <button className="navbar__content-btn">
-            <IoVideocamOutline className="navbar__content-icon" />
-          </button>
-          <button className="navbar__content-btn">
-            <IoApps className="navbar__content-icon" />
-          </button>
-          <button className="navbar__content-btn">
-            <IoNotificationsOutline className="navbar__content-icon" />
-          </button>
-
+          {icons.map((icon, index) => {
+            return (
+              <button className="navbar__content-btn" key={index}>
+                {icon}
+              </button>
+            );
+          })}
           <button className="navbar__content-btn">
             <img src={UserImg} alt="" />
           </button>
