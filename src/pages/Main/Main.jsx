@@ -9,11 +9,13 @@ import SideBar from "../../components/SideBar/SideBar";
 function Main() {
   return (
     <div className="main">
-      <Navbar />
-      {/* <div className="main__content">
-        <SideBar />
-        <Content />
-      </div> */}
+      <div className="container">
+        <Navbar />
+        <div className="main__content">
+          <SideBar />
+          <Content />
+        </div>
+      </div>
     </div>
   );
 }

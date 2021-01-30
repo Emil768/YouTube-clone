@@ -1,18 +1,36 @@
 .navbar {
   &__content {
     height: 56px;
-    padding: 20px 70px 0 32px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    &-left {
+    &-info {
       display: flex;
       align-items: center;
     }
-    &-right {
+    &-btns {
       display: flex;
       align-items: center;
+    }
+    &-btn {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      margin-right: 52px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &-icon {
+      font-size: 26px;
+      color: rgba(0, 0, 0, 0.24);
+      &:hover {
+        color: #000;
+      }
     }
   }
   &__menu {
@@ -27,9 +45,6 @@
       margin-bottom: 4px;
       border-radius: 30px;
       background-color: #1f2022;
-      // &:last-child {
-      //   margin-bottom: 0;
-      // }
     }
   }
 
@@ -59,16 +74,6 @@
       top: 14px;
       position: absolute;
       cursor: pointer;
-    }
-  }
-  &__icon {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    margin-right: 52px;
-    cursor: pointer;
-    &:last-child {
-      margin-right: 0;
     }
   }
 

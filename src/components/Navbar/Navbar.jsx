@@ -3,18 +3,22 @@ import React from "react";
 import "./Navbar.scss";
 
 import Logo from "../../img/Logo.svg";
-import AppsImg from "../../img/Apps.svg";
-import NtcImg from "../../img/Notification.svg";
-import VideoImg from "../../img/Video.svg";
+
 import UserImg from "../../img/Userpic.png";
 
+import {
+  IoNotificationsOutline,
+  IoApps,
+  IoVideocamOutline,
+} from "react-icons/io5";
+
 function Navbar() {
-  const icons = [VideoImg, AppsImg, NtcImg, UserImg];
+  // const icons = [IoNotificationsOutline, IoApps, IoVideocamOutline];
 
   return (
     <div className="navbar">
       <div className="navbar__content">
-        <div className="navbar__content-left">
+        <div className="navbar__content-info">
           <button className="navbar__menu">
             <div className="navbar__menu-line"></div>
             <div className="navbar__menu-line"></div>
@@ -28,14 +32,20 @@ function Navbar() {
             <span></span>
           </div>
         </div>
-        <div className="navbar__content-right">
-          {icons.map((img, index) => {
-            return (
-              <button className="navbar__icon" key={index}>
-                <img src={img} alt="" />
-              </button>
-            );
-          })}
+        <div className="navbar__content-btns">
+          <button className="navbar__content-btn">
+            <IoVideocamOutline className="navbar__content-icon" />
+          </button>
+          <button className="navbar__content-btn">
+            <IoApps className="navbar__content-icon" />
+          </button>
+          <button className="navbar__content-btn">
+            <IoNotificationsOutline className="navbar__content-icon" />
+          </button>
+
+          <button className="navbar__content-btn">
+            <img src={UserImg} alt="" />
+          </button>
         </div>
       </div>
     </div>
