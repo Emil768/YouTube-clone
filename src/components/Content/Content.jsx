@@ -1,35 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Video from "../Video/Video";
 
 import "./Content.scss";
 
 function Content() {
-  let foo = [
-    1,
-    2,
-    3,
-    34,
-    4,
-    324,
-    23,
-    34,
-    3,
-    42,
-    432,
-    4,
-    24,
-    14,
-    14,
-    1,
-    41,
-    4,
-    14,
-  ];
-
+  const { videos } = useSelector(state => state.homeVideos);
+  console.log(videos);
   return (
     <div className="video-content">
-      {foo.map((item, index) => {
-        return <Video key={index} />;
+      {videos.map((item, index) => {
+        return <Video videos={item} key={index} />;
       })}
     </div>
   );

@@ -1,28 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Video.scss";
 
-import VideoBcg from "../../img/Video-img.png";
+import request from "../../api";
+import moment from "moment";
 
-import VideoBcg2 from "../../img/Video-img2.png";
+import numeral from "numeral";
 
-function Video() {
+function Video({ videos }) {
+  const {
+    id,
+    snippet: {
+      channelTitle,
+      title,
+      publishedAt,
+      thumbnails: { medium },
+    },
+  } = videos;
+
+  const [views, setViews] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [channelIcon, setChannelIcon] = useState(null);
+
+  const seconds = moment.duration(duration).asSeconds();
+  const _duration = moment.utc(seconds * 1000).format("mm:ss");
+
+  useEffect(() => {
+    const getVideoDetails = async () => {
+      const {
+        data: { items },
+      } = await request("/videos", {
+        params: {
+          part: "contentDetails,statistics",
+          id: id,
+        },
+      });
+      setDuration(items[0].contentDetails.duration);
+      setViews(items[0].statistics.viewCount);
+    };
+    getVideoDetails();
+  }, [id]);
+
+  // useEffect(() => {
+  //   const getChannelIcon = async () => {
+  //     const {
+  //       data: { items },
+  //     } = await request("/channels", {
+  //       params: {
+  //         part: "snippet",
+  //         id: channelId,
+  //       },
+  //     });
+  //     setChannelIcon(items[0].snippet.thumbnails.default);
+  //   };
+  //   getChannelIcon();
+  // }, [channelId]);
+
   return (
     <div className="video">
       <div className="video__icon">
-        <img
-          src="https://image-cdn.essentiallysports.com/wp-content/uploads/20210107205249/flatten.png"
-          alt=""
-        />
-        <span className="video__time">7:36</span>
+        <img src={medium.url} alt="" />
+        <span className="video__time">{_duration}</span>
       </div>
-      <h4 className="video__title">Astronomy Or Astrology</h4>
+      <h4 className="video__title">{title}</h4>
       <div className="video__info">
         <div className="video__info-content">
-          <span className="video__info-view">240k views</span>
-          <span className="video__info-days">4 months ago</span>
+          <span className="video__info-view">
+            {numeral(views).format("0.a")} views
+          </span>
+          <span className="video__info-days">
+            {moment(publishedAt).fromNow()}
+          </span>
         </div>
-        <span>Food & Drink</span>
+        <span>{channelTitle}</span>
       </div>
     </div>
   );
