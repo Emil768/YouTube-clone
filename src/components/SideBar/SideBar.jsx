@@ -5,6 +5,7 @@ import "./SideBar.scss";
 import {
   IoMusicalNotesOutline,
   IoGameControllerOutline,
+  IoLogOutOutline,
 } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import {
@@ -20,8 +21,12 @@ import { BsStar } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
 
 import Subcriber from "../../img/Subscriber.png";
+import { useDispatch } from "react-redux";
+import { log_out } from "../../redux/actions/auth.action";
 
 function SideBar() {
+  const dispatch = useDispatch();
+
   const icons = [
     {
       text: "Home",
@@ -85,6 +90,10 @@ function SideBar() {
     },
   ];
 
+  const hanlderLogOut = () => {
+    dispatch(log_out());
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar__content">
@@ -114,6 +123,10 @@ function SideBar() {
           })}
         </div>
         <div className="sidebar__settings">
+          <button className="sidebar__btn" onClick={hanlderLogOut}>
+            <IoLogOutOutline className="sidebar__settings-icon" />
+            <span className="sidebar__settings-text">Logout</span>
+          </button>
           <button className="sidebar__btn">
             <FiSettings className="sidebar__settings-icon" />
             <span className="sidebar__settings-text">Setting</span>

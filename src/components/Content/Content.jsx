@@ -26,7 +26,6 @@ function Content() {
     14,
   ];
 
-  console.log(foo);
   return (
     <div className="video-content">
       {foo.map((item, index) => {

@@ -57,6 +57,11 @@
   }
   &__settings {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    .sidebar__btn:nth-child(3),
+    .sidebar__btn:last-child {
+      margin-bottom: 0;
+    }
   }
 }
