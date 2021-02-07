@@ -1,6 +1,8 @@
-.video-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.content {
   width: 100%;
+  &__videos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }

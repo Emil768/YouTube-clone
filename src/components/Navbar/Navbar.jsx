@@ -40,8 +40,11 @@ function Navbar() {
               </button>
             );
           })}
-          <button className="navbar__content-btn">
-            <img src={UserImg} alt="" />
+          <button className="navbar__content-btn navbar__content-img">
+            <img
+              src="https://yt3.ggpht.com/yti/ANoDKi45xx7EL-rHhhnzcbgnMLLIos2NZ-_bpIc5YduLNw=s108-c-k-c0x00ffffff-no-rj"
+              alt=""
+            />
           </button>
         </div>
       </div>

@@ -25,6 +25,8 @@ function Video({ videos }) {
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
 
+  const _videoId = id?.videoId || id;
+
   useEffect(() => {
     const getVideoDetails = async () => {
       const {
@@ -32,14 +34,14 @@ function Video({ videos }) {
       } = await request("/videos", {
         params: {
           part: "contentDetails,statistics",
-          id: id,
+          id: _videoId,
         },
       });
       setDuration(items[0].contentDetails.duration);
       setViews(items[0].statistics.viewCount);
     };
     getVideoDetails();
-  }, [id]);
+  }, [_videoId]);
 
   // useEffect(() => {
   //   const getChannelIcon = async () => {
@@ -62,7 +64,9 @@ function Video({ videos }) {
         <img src={medium.url} alt="" />
         <span className="video__time">{_duration}</span>
       </div>
-      <h4 className="video__title">{title}</h4>
+      <h4 className="video__title" title={title}>
+        {title}
+      </h4>
       <div className="video__info">
         <div className="video__info-content">
           <span className="video__info-view">
